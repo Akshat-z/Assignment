@@ -17,7 +17,7 @@ app.post("/convert", async (req, res) => {
       throw new Error("Error fetching currency conversion data");
     }
     const data = await response.json();
-    let y = data.to; // You can handle the conversion data here
+    //let y = data.to; // You can handle the conversion data here
 
     res.json({
       success: true,
@@ -27,7 +27,7 @@ app.post("/convert", async (req, res) => {
       exchangeValue: [
         {
           to: to,
-          value: amount * y,
+          value: amount * data[to],
         },
       ],
     });
